@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PortFolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<style>
+	*{
+            padding: 0;
+            margin: 0;
+            outline: none;
+            border: none;
+            box-sizing: border-box;
+            font-family: poppins, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        body {
+            background-image: url("./assets/pexels-pixabay-219837.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        a.button {
+            padding: 1rem 1.5rem;
+            background-color: red;
+            color: white;
+            border-radius: 10px;
+            /* text-transform: uppe; */
+            font-weight: bold;
+            transition: 400ms all ease;
+        }
+        a.button:hover {
+            background-color: darkred;
+        }
+
+        nav {
+            position: absolute;
+            color: white;
+            top: 2rem;
+            
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            height: 100%;
+            
+        }
+        nav ul a {
+            width: fit-content;
+            height: fit-content;
+            position: relative;
+        }
+        ul a::after {
+            transition: 400ms all ease;
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            width: 0;
+            height: 3px;
+            background-color: red;
+        }
+        ul a:hover::after {
+            width: 100%;
+        }
+        header {
+            height: 100vh;
+            background-color: #0f0f0f;
+            color: white;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header .img{
+            height: 300px;
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 4rem 4rem 0 0;
+            filter: saturate(0);
+            cursor: pointer;
+            transition: 400ms all ease;
+            box-shadow: 0 0 0.5rem rgba(255,255,255,0.5);
+        }
+        .img:hover {
+            filter: none;
+        }
+        .img img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        header .info {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+
+        }
+        .info p {
+            color: red;
+        }
+
+        .info h1 {
+            position: relative;
+        }
+        .info h1::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: red;
+            right: -10px;
+            background-color: #0f0f0f;
+            border-left: 6px solid red;
+            animation: view 1000ms linear forwards ;
+        }
+
+
+        #aboutme {
+            height: 100vh;
+            width: 100vw;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        #aboutme .cards {
+            display: flex;
+            gap: 2rem;
+            padding-top: 2rem;
+        }
+        #aboutme h2{
+            color: darkred;
+            font-size: 2rem;
+        }
+        #aboutme p {
+            color: inherit;
+            text-shadow: 0 0 4px black;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            height: 300px;
+            width: 250px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            transition: 300ms all ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            backdrop-filter: blur(4px);
+
+        }
+        .card:hover {
+            /* background-color: #222; */
+            border-color: skyblue;
+            backdrop-filter: none;
+        }
+        .card .img {
+            height: 120px;
+            width: 120px;
+            padding: 1rem;
+            background-color: black;
+            border-radius: 50%;
+            box-shadow: inset 0 0 1rem rgba(255,255,255,0.2);
+        
+        }
+
+        .card .content ul {
+            list-style: none;
+            /* text-align: left; */
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-top: 4px;
+        }
+
+        footer {
+            padding: 2rem;
+            background-color: black;
+            color: white;
+            width: 100vw;
+            text-align: center;
+        }
+
+        #contactme {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0,0,0,0.9);
+            color: white;
+
+        }
+
+        #contactme .top {
+            text-align: center;
+        }
+        #contactme .bottom {
+            width: 50%;
+        }
+        #contactme .bottom form {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            /* background-color: red; */
+            gap: 2rem;
+
+        }
+
+        form input, textarea {
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        form button {
+            background-color: red;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 300ms all ease;
+        }
+        form button:hover {
+            background-color: darkred;
+        }
+
+
+        @keyframes view {
+            from {
+                width: 100%;
+            }
+            to {
+                width: 0%;
+            }
+        }
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav_menu">
+                <a href="index.html"><li>HOME</li></a>
+                <a href="#aboutme"><li>ABOUT</li></a>
+                <a href="#contactme"><li>CONTACT</li></a>
+            </ul>
+        </nav>
+        <div class="img">
+            <img src="./assets/IMG_20250927_005323_568.webp" alt="My Photo">
+        </div>
+        <div class="info">
+            <h1>Muhammad Furqan Rasool</h1>
+            <p>Full Stacked Web Developer</p>
+            <a href="#contactme" class="button">Let's Talk</a>
+        </div>
+
+    </header>
+
+    <section id="aboutme">
+        <div class="info">
+            <h2>About Me</h2>
+            <p>I am a Full Stacked Web Developer with 2 years of experience</p>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div class="img">
+                    <img src="./assets/reactjs-icon.svg" alt="">
+                </div>
+                <div class="content">
+                    <h4>Frontend</h4>
+                    <ul>
+                        <li>HTML, CSS, JS</li>
+                        <li>ReactJS</li>
+                        <li>NextJS</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="./assets/nodejs-icon.svg" alt="">
+                </div>
+                <div class="content">
+                    <h4>Backend</h4>
+                    <ul>
+                        <li>NodeJS</li>
+                        <li>ExpressJS</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="./assets/mongodb-icon.svg" alt="">
+                </div>
+                <div class="content">
+                    <h4>Databases</h4>
+                    <ul>
+                        <li>MongoDB</li>
+                        <li>Firebase</li>
+                        <li>Oracle SQL Developer</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contactme">
+        <div class="top">
+            <h1>Contact Me</h1>
+            <p>Let's collaborate and develop fabulous projects together!</p>
+        </div>
+        <div class="bottom">
+            <form action="">
+                <input type="text" placeholder="Enter Full Name">
+                <input type="text" placeholder="Enter Email Address">
+                <textarea name="comment" rows="10" id="" placeholder="Write something....."></textarea>
+                <button class="button" onclick="clicked()">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>Made with ❤️ by Muhammad Furqan Rasool!</p>
+    </footer>
+
+
+</body>
+</html>
